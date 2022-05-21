@@ -1,0 +1,22 @@
+tasks:
+  - name: PlantUML Docker Server
+    init: docker pull plantuml/plantuml-server:jetty
+    command: docker run -d -p 8080:8080 plantuml/plantuml-server:jetty
+
+  - name: Install AaC Python Package
+    init: |
+      python3.9 -m pip install --upgrade pip
+    command: pip install aac --user
+
+vscode:
+  extensions:
+    - eamodio.gitlens
+    - redhat.vscode-yaml
+    - editorconfig.editorconfig
+    - ms-python.python
+    - samuelcolvin.jinjahtml
+    - jebbs.plantuml
+    - zxh404.vscode-proto3
+
+image:
+  file: .gitpod.Dockerfile
