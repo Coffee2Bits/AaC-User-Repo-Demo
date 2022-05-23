@@ -47,10 +47,16 @@ jobs:
           pip install aac
 
       - name: Generate Design Document
-        run: aac gen-design-doc src/model/entry.yaml
+        run: aac gen-design-doc src/model/entry.yaml artifacts/docs
 
       - name: Generate Protobuf Messages
-        run: aac gen-protobuf src/model/entry.yaml proto
+        run: aac gen-protobuf src/model/entry.yaml artifacts/proto
 
       - name: Generate PlantUML Diagrams
-        run: aac puml-component src/model/entry.yaml --output_directory puml
+        run: aac puml-component src/model/entry.yaml --output_directory artifacts/puml
+
+      - name: Upload Generated Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: model_artifacts
+          path: artifacts/
