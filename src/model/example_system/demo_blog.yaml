@@ -21,11 +21,11 @@ model:
       acceptance:
         - scenario: onReceive
           given:
-           - The  service is running.
+           - The BlogBackendService is running.
           when:
-            - The user sends a message to EchoExample.
+            - The user sends a UserRequest message to BlogService.
           then:
-            - The user receives the same message from EchoExample.
+            - The user receives a BlogPostsResponse containing the list of blog posts from the DatabaseService.
 ---
 model:
   name: BlogBackendService
