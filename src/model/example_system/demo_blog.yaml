@@ -1,7 +1,7 @@
 import:
  - messages.yaml
 model:
-  name: Demo Blog Example
+  name: WebBlog
   description: An example basic web blog
   components:
     - name: BlogService
@@ -14,10 +14,10 @@ model:
       description: Return a list of blog posts.
       input:
         - name: inbound
-          type: User Request
+          type: UserRequest
       output:
         - name: outbound
-          type: Blog Posts Response
+          type: BlogPostsResponse
       acceptance:
         - scenario: onReceive
           given:
@@ -29,6 +29,44 @@ model:
 ---
 model:
   name: BlogBackendService
+  description: The backend service that handles user requests and data management.
 ---
 model:
   name: DatabaseService
+  description: The database asset.
+---
+model:
+  name: ExternalUser
+  description: A user that is external to the blog system.
+---
+usecase:
+  name: User requests a blog post
+  description: The user requests a blog post and it is returned to them.
+  participants:
+    - name: user
+      type: ExternalUser
+    - name: blogSystem
+      type: WebBlog
+    - name: blogService
+      type: BlogBackendService
+    - name: blogDatabase
+      type: DatabaseService
+  steps:
+    - step: The user requests a blog post.
+      source: user
+      target: blogSystem
+    - step: The blogSystem delegates to the blog service.
+      source: blogSystem
+      target: blogService
+    - step: The blogService retrieves the content from the database.
+      source: blogService
+      target: blogDatabase
+    - step: The blogDatabase retruns the content to the blogService.
+      source: blogDatabase
+      target: blogService
+    - step: The blogService returns the content to the blog system.
+      source: blogService
+      target: blogSystem
+    - step: The blog returns the post to the user.
+      source: blogSystem
+      target: user

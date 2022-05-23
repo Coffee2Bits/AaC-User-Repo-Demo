@@ -1,10 +1,10 @@
 schema:
-  name: User Request
+  name: UserRequest
   description: Example user request for blog post(s)
   fields:
-    - name: UserID
+    - name: user_id
       type: int
-    - name: Blog Post IDs
+    - name: blog_post_ids
       type: int[]
       description: The list of requested blog posts
 ---
@@ -12,16 +12,16 @@ schema:
   name: BlogPost
   description: Schema for blog post data
   fields:
-    - name: Author
+    - name: author
       type: string
-    - name: Blog Content
+    - name: blog_content
       type: string
-    - name: Created date
+    - name: created_date
       type: date
 ---
 schema:
-  name: Blog Posts Response
+  name: BlogPostsResponse
   description: Response for blog post(s) data
   fields:
-    - name: BlogPosts
+    - name: blog_posts
       type: BlogPost[]
