@@ -4,6 +4,7 @@ schema:
   fields:
     - name: user_id
       type: int
+      description: An internal ID representing a logged-in user.
     - name: blog_post_ids
       type: int[]
       description: The list of requested blog posts
@@ -14,10 +15,13 @@ schema:
   fields:
     - name: author
       type: string
+      description: The author of the blog post.
     - name: blog_content
       type: string
+      description: The content of the blog post.
     - name: created_date
       type: date
+      description: The date the blog post was created.
 ---
 schema:
   name: BlogPostsResponse
@@ -25,3 +29,4 @@ schema:
   fields:
     - name: blog_posts
       type: BlogPost[]
+      description: A list of blog posts.
