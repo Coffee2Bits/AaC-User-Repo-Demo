@@ -1,0 +1,27 @@
+schema:
+  name: User Request
+  description: Example user request for blog post(s)
+  fields:
+    - name: UserID
+      type: int
+    - name: Blog Post IDs
+      type: int[]
+      description: The list of requested blog posts
+---
+schema:
+  name: BlogPost
+  description: Schema for blog post data
+  fields:
+    - name: Author
+      type: string
+    - name: Blog Content
+      type: string
+    - name: Created date
+      type: date
+---
+schema:
+  name: Blog Posts Response
+  description: Response for blog post(s) data
+  fields:
+    - name: BlogPosts
+      type: BlogPost[]

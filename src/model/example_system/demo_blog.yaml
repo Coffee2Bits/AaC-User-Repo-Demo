@@ -1,0 +1,34 @@
+import:
+ - messages.yaml
+model:
+  name: Demo Blog Example
+  description: An example basic web blog
+  components:
+    - name: BlogService
+      type: BlogBackendService
+    - name: Database
+      type: DatabaseService
+  behavior:
+    - name: Get Blog Posts
+      type: request-response
+      description: Return a list of blog posts.
+      input:
+        - name: inbound
+          type: User Request
+      output:
+        - name: outbound
+          type: Blog Posts Response
+      acceptance:
+        - scenario: onReceive
+          given:
+           - The  service is running.
+          when:
+            - The user sends a message to EchoExample.
+          then:
+            - The user receives the same message from EchoExample.
+---
+model:
+  name: BlogBackendService
+---
+model:
+  name: DatabaseService
