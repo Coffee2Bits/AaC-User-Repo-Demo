@@ -26,7 +26,7 @@ jobs:
 
       - name: Validate Model
         run: |
-          find src/model/ -name *.yaml -print0 | xargs -0 -n1 aac validate
+          find src/model/ -name *.aac -print0 | xargs -0 -n1 aac validate
 
   generate_example_model_artifacts:
     name: Generate Example Model Artifacts
@@ -48,13 +48,13 @@ jobs:
           pip install aac
 
       - name: Generate Design Document
-        run: aac gen-design-doc src/model/example_model/example_model.yaml artifacts/docs
+        run: aac gen-design-doc src/model/example_model/example_model.aac artifacts/docs
 
       - name: Generate Protobuf Messages
-        run: aac gen-protobuf src/model/example_model/example_model.yaml artifacts/proto
+        run: aac gen-protobuf src/model/example_model/example_model.aac artifacts/proto
 
       - name: Generate PlantUML Diagrams
-        run: aac puml-component src/model/example_model/example_model.yaml --output_directory artifacts/puml
+        run: aac puml-component src/model/example_model/example_model.aac --output_directory artifacts/puml
 
       - name: Upload Generated Artifacts
         uses: actions/upload-artifact@v2
@@ -82,13 +82,13 @@ jobs:
           pip install aac
 
       - name: Generate Design Document
-        run: aac gen-design-doc src/model/example_system/demo_blog.yaml artifacts/docs
+        run: aac gen-design-doc src/model/example_system/demo_blog.aac artifacts/docs
 
       - name: Generate Protobuf Messages
-        run: aac gen-protobuf src/model/example_system/demo_blog.yaml artifacts/proto
+        run: aac gen-protobuf src/model/example_system/demo_blog.aac artifacts/proto
 
       - name: Generate PlantUML Diagrams
-        run: aac puml-component src/model/example_system/demo_blog.yaml --output_directory artifacts/puml
+        run: aac puml-component src/model/example_system/demo_blog.aac --output_directory artifacts/puml
 
       - name: Upload Generated Artifacts
         uses: actions/upload-artifact@v2
