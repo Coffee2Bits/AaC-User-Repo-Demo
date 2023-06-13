@@ -1,5 +1,5 @@
 import:
- - messages.yaml
+ - messages.aac
 model:
   name: WebBlog
   description: An example basic web blog
