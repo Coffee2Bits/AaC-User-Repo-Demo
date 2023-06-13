@@ -2,7 +2,7 @@ import:
   - ./message.aac
 model:
   name: EchoExample
-  description: This is a message mirroring model (echo).
+  description: This is a message mirroring model (echo)!
   behavior:
     - name: Echo
       type: request-response
