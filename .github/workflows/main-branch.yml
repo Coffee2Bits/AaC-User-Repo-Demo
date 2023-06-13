@@ -54,7 +54,7 @@ jobs:
         run: aac gen-protobuf src/model/example_model/example_model.aac artifacts/proto
 
       - name: Generate PlantUML Diagrams
-        run: aac puml-component src/model/example_model/example_model.aac --output_directory artifacts/puml
+        run: aac puml-component src/model/example_model/example_model.aac artifacts/puml
 
       - name: Upload Generated Artifacts
         uses: actions/upload-artifact@v2
@@ -88,7 +88,7 @@ jobs:
         run: aac gen-protobuf src/model/example_system/demo_blog.aac artifacts/proto
 
       - name: Generate PlantUML Diagrams
-        run: aac puml-component src/model/example_system/demo_blog.aac --output_directory artifacts/puml
+        run: aac puml-component src/model/example_system/demo_blog.aac artifacts/puml
 
       - name: Upload Generated Artifacts
         uses: actions/upload-artifact@v2
