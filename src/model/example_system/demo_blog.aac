@@ -10,6 +10,8 @@ model:
       type: BlogBackendService
     - name: Database
       type: DatabaseService
+    - name: Ingress
+      type: IngressService
   behavior:
     - name: Get Blog Posts
       type: request-response

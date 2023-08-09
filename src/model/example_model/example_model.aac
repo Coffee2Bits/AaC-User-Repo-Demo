@@ -11,10 +11,10 @@ model:
       description: Return a response with identical content to the request.
       input:
         - name: inbound
-          type: Message
+          type: EchoMessage
       output:
         - name: outbound
-          type: Message
+          type: EchoMessage
       acceptance:
         - scenario: onReceive
           given:
