@@ -1,5 +1,7 @@
 import:
- - messages.aac
+  files:
+    - messages.aac
+---
 model:
   name: WebBlog
   description: An example basic web blog
