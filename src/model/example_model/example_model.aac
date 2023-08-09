@@ -1,5 +1,7 @@
 import:
-  - ./message.aac
+  files:
+    - ./message.aac
+---
 model:
   name: EchoExample
   description: This is a message mirroring model (echo)!

@@ -13,3 +13,6 @@ insert_final_newline = false
 
 [*.y{ml,aml}]
 indent_size = 2
+
+[*.aac]
+indent_size = 2
