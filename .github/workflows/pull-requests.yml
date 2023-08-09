@@ -3,6 +3,7 @@ name: Pull Request Workflow
 
 on:
   pull_request:
+  workflow_call:
 
 jobs:
   validate_aac_model:
