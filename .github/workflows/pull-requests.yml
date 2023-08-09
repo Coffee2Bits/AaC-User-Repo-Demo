@@ -56,6 +56,9 @@ jobs:
       - name: Generate PlantUML Diagrams
         run: aac puml-component src/model/example_model/example_model.aac artifacts/puml
 
+      - name: Convert PUML Diagrams to SVGs
+        run: scripts/generate_images.bash
+
       - name: Upload Generated Artifacts
         uses: actions/upload-artifact@v2
         with:
